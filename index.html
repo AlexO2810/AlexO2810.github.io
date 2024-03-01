@@ -5,8 +5,175 @@
 		<title>
 			Strona główna
 		</title>
+		<style>
+		body{
+		background-color: #E0CF99;
+		}
+		
+		
+		ul{
+		list-style-type: none;
+		}
+		
+		.navigator{
+		margin: 0;
+		padding: 0;
+		background-color: #E09242;
+		display: flex;
+		justify-content: center;
+		}
+		ul li {
+		float: left;
+		}
+		.dropdown {
+		position: relative;
+		display: inline-block;
+		}
+		.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		width: 150px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+		}
+		.dropdown-content a{
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		color: black;
+		padding: 12px 16px;
+		background-color: #DBD7DB;
+		}
+		.dropdown:hover .dropdown-content {
+		display: block;
+		}
+		.dropdown-content a:hover{
+		background-color: #BAB6BA;
+		}
+		.dropbtn{
+		text-decoration: none;
+		display: block;
+		width: 150px;
+		text-align: center;
+		padding: 10px 0;
+		font-size: 16px;
+		font-weight: bold;
+		background-color: #E09242;
+		color: #def;
+		}
+		.dropbtn:hover{
+		background-color: #BF782C;
+		}
+		
+		
+		.cos{
+		background-color: #DE580D;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		display: block;
+		}
+		.pagecontent{
+		margin-top: 50px; 
+		width: 60%;
+		margin-left: 20%;
+		margin-right: 20%;
+		position: center;
+		}
+		img{
+		height: 250px;
+		width: 300px;
+		object-fit: cover;
+		margin: 10px;
+		}
+		.lewy{
+		float: left;
+		}
+		.prawy{
+		float: right;
+		}
+		.wiersz{
+		margin: 10px;
+		}
+		p{
+		text-align: center;
+		text-font-size: 50 px;
+		}
+		h2{
+		text-align: center;
+		}
+
+	</style>
 	</head>
 	<body>
-		<h1>Aleksandra Oknińska</h1>
-	<boody>
+		<div class="cos">
+			<ul class="navigator">
+				<li><div class="dropdown"><a  class="dropbtn" >Strona główna</a></div></li>
+				<li><div class="dropdown">
+								<span class="dropbtn">Konie skokowe</span>
+									<div class="dropdown-content">
+									<a >Kon 1</a>
+									<a >Kon 2</a>
+									<a >Kon 3</a>
+									</div>
+					</div>
+				</li>
+				<li><div class="dropdown">
+								<span class="dropbtn">Konie ujeżdżeniowe</span>
+									<div class="dropdown-content">
+									<a >Kon 1</a>
+									<a >Kon 2</a>
+									<a >Kon 3</a>
+									</div>
+					</div>
+				</li>
+				<li><div class="dropdown">
+								<span class="dropbtn">Konie wyścigowe</span>
+									<div class="dropdown-content">
+									<a >Kon 1</a>
+									<a >Kon 2</a>
+									<a >Kon 3</a>
+									</div>
+					</div>
+				</li>
+				<li><div class="dropdown">
+								<span class="dropbtn">Konie westernowe</span>
+									<div class="dropdown-content">
+									<a >Kon 1</a>
+									<a >Kon 2</a>
+									<a >Kon 3</a>
+									</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="pagecontent">
+			<ul>
+				<li class="wiersz">
+					<img class="lewy" src="skoki.jpg" alt="zdjecie 1">
+					<h2>Skoi przez przeszkody</h2>
+					<p>Skoki przez przeszkody to dynamiczna i widowiskowa dyscyplina, w której jeździec i koń pokonują serię przeszkód na czas. Przeszkody mogą być różnej wysokości i szerokości, a celem jest przejście przez trasę z jak najmniejszą liczbą błędów, takich jak odmowa przeskoczenia lub upuszczenie przeszkody.</p>
+				</li>
+				<li class="wiersz">
+					<img class="prawy" src="dressage.jpg" alt="zdjecie 1">
+					<h2>Ujeżdżenie</h2>
+					<p>Ujeżdżenie to dyscyplina polegająca na precyzyjnym wykonywaniu z góry określonych figur i ruchów przez jeźdźca i konia. Celem jest osiągnięcie harmonii, elastyczności i posłuszeństwa konia, wykazując kontrolę nad jego ruchami. Ujeżdżenie wymaga dużego skupienia, zrozumienia biomechaniki konia oraz precyzyjnych komunikacji między jeźdźcem a zwierzęciem.</p>
+				</li>
+				<li class="wiersz">
+					<img class="lewy" src="wyscigi.jpg" alt="zdjecie 1">
+					<h2>Wyścigi</h2>
+					<p>Wyścigi konne obejmują różnorodne formy, takie jak wyścigi galopowe, płaskie, przeszkód czy też wyścigi na długim dystansie. Celem jest pokonanie trasy w jak najkrótszym czasie. Ta ekscytująca dyscyplina wymaga od jeźdźców umiejętności taktycznych, szybkości, wytrzymałości oraz zdolności do kontrolowania konia w dynamicznych warunkach.</p>
+				</li>
+				<li class="wiersz">
+					<img class="prawy" src="western.jpg" alt="zdjecie 1">
+					<h2>Western</h2>
+					<p>Western to zbiorcza nazwa dla różnorodnych dyscyplin jeździeckich o charakterze tradycyjnym dla dzikiego zachodu, takich jak rodeo, konkurencje zręcznościowe (np. spinning, sliding), czy zawody wierzchowe (np. trail, reining). Wymagają one umiejętności pracy z koniem w stylu typowym dla kowbojów i charakteryzują się pewnymi specyficznymi technikami jeździeckimi, takimi jak jazda jedną ręką na luzie czy pracowanie bydłem.</p>
+				</li>
+			</ul>
+		</div>
+		
+	</body>
 </html>
