@@ -24,6 +24,7 @@ h1 {
     background-color: #FFF;
     border: none;
     color: white;
+	cursor: context-menu;
 }
 
 .btn {
@@ -31,6 +32,8 @@ h1 {
     height: 80px;
     width: 100px;
 	padding: 0px;
+	display: block;
+	float: left;
 }
 .imgTrybu{
 	width: 100px;
@@ -46,7 +49,7 @@ h1 {
 }
 .opcje{
 	position: absolute;
-	top: 80px;
+	top: 30px;
 	}
 li{
 	list-style: none;
@@ -93,6 +96,7 @@ button{
 <body>
     <h1>Sliding Puzzle</h1>
 	<ul class="opcje">
+	<li><span style="width: 250px; display: block; margin: 0px 0px 20px 0px">Możesz grać za pomocą myszki lub strzałek na klawiaturze</span></li>
 	<li><span>Rozmiar planszy</span></li>
 	<li><input type="number" id="numerki" onchange="changeSize(this.value)" min=3 max=7 value=4></li>
 	<li><span>Wybierz tryb</span></li>
@@ -120,7 +124,7 @@ let src = "";
 
 let buttonContainer = document.getElementById('tiles');
 
-// Keyboard controls
+
 const RIGHT_ARROW = 39;
 const LEFT_ARROW = 37;
 const UP_ARROW = 40;
@@ -226,9 +230,9 @@ function changeImg(imgSrc) {
 		img.style.height = size*80 + "px";
 		img.style.objectFit ='cover';
 		img.style.objectPosition = "-"+x.toString()+"px "+"-"+y.toString()+"px";
+		img.style.position = "relative";
 		img.alt = b.toString();
 		button.style.overflow = 'hidden';
-		button.style.margin = '-4px 0px 0px 0px';
 		button.innerHTML = "";
 		button.appendChild(img);
 		if(button.id == ('btn'+numberOfTiles)){
@@ -247,7 +251,7 @@ function changeImg(imgSrc) {
     
 }
 
-// Create buttons
+
 function loadTiles(n) {
     for (let b = 1; b <= numberOfTiles; b++) {
         var newTile = document.createElement('button');
@@ -293,12 +297,12 @@ function shuffle() {
     }
 }
 
-// Swap tiles 
+
 function swap(clicked, game) {
     if (clicked < 1 || clicked > (numberOfTiles)) {
         return;
     }
-    // Check if we are trying to swap right
+    
     if (clicked == highlighted + 1) {
         if (clicked % size != 1) {
             setSelected(clicked);
@@ -306,7 +310,7 @@ function swap(clicked, game) {
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
 			}
         }
-        // Check if we are trying to swap left
+    
     } else if (clicked == highlighted - 1) {
         if (clicked % size != 0) {
             setSelected(clicked);
@@ -314,13 +318,13 @@ function swap(clicked, game) {
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
 			}
         }
-        // Check if we are trying to swap up
+     
     } else if (clicked == highlighted + size) {
         setSelected(clicked);
 		if(game && shuffled){
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
 			}
-        // Check if we are trying to swap down 
+      
     } else if (clicked == highlighted - size) {
         setSelected(clicked);
 		if(game && shuffled){
@@ -358,7 +362,7 @@ function checkHasWon() {
 	return true;
 }
 
-// Applies stylings to the selected tile
+
 function setSelected(index) {
     currentTile = document.getElementById(`btn${highlighted}`);
     currentTileText = currentTile.innerHTML;
