@@ -118,7 +118,6 @@ let size = 4;
 let numberOfTiles = size ** 2;
 let highlighted = numberOfTiles;
 let shuffled = false;
-let game = false;
 let mode = "numbers";
 let src = "";
 
@@ -171,9 +170,10 @@ function changeSize(x){
 	while (tiles.hasChildNodes()) {
 			tiles.removeChild(tiles.childNodes[0]);
 		}
-	size = x;
-	numberOfTiles = x**2;
+	size = parseInt(x);
+	numberOfTiles = parseInt(x)**2;
 	highlighted = numberOfTiles;
+	buttonContainer = document.getElementById('tiles');
 	loadTiles();
 	}
 function changeNumber(){
@@ -252,7 +252,7 @@ function changeImg(imgSrc) {
 }
 
 
-function loadTiles(n) {
+function loadTiles() {
     for (let b = 1; b <= numberOfTiles; b++) {
         var newTile = document.createElement('button');
         newTile.id = `btn${b}`;
@@ -303,7 +303,6 @@ function swap(clicked, game) {
     if (clicked < 1 || clicked > (numberOfTiles)) {
         return;
     }
-    
     if (clicked == highlighted + 1) {
         if (clicked % size != 1) {
             setSelected(clicked);
@@ -311,6 +310,7 @@ function swap(clicked, game) {
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
 			}
         }
+		return;
     
     } else if (clicked == highlighted - 1) {
         if (clicked % size != 0) {
@@ -319,6 +319,7 @@ function swap(clicked, game) {
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
 			}
         }
+		return;
      
     } else if (clicked == highlighted + size) {
         setSelected(clicked);
@@ -327,7 +328,7 @@ function swap(clicked, game) {
 			}
 		
       
-    } else if (clicked == highlighted - size) {
+    }else if (clicked == highlighted - size) {
         setSelected(clicked);
 		if(game && shuffled){
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
