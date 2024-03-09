@@ -310,7 +310,6 @@ function swap(clicked, game) {
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
 			}
         }
-		return;
     
     } else if (clicked == highlighted - 1) {
         if (clicked % size != 0) {
@@ -319,7 +318,6 @@ function swap(clicked, game) {
 				document.getElementById('licznikContent').innerHTML = parseInt(document.getElementById('licznikContent').innerHTML) + 1;
 			}
         }
-		return;
      
     } else if (clicked == highlighted + size) {
         setSelected(clicked);
