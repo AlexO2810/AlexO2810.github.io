@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
     <meta charset='utf-8'>
     <title>Sliding Puzzle</title>
@@ -46,8 +46,7 @@ h1 {
 }
 .opcje{
 	position: absolute;
-	top: 100px;
-	left: 30px;
+	top: 80px;
 	}
 li{
 	list-style: none;
@@ -93,18 +92,18 @@ button{
 </head>
 <body>
     <h1>Sliding Puzzle</h1>
-	<div class="opcje">
+	<ul class="opcje">
 	<li><span>Rozmiar planszy</span></li>
-	<li><input type="number" id="numerki" oninput="changeSize(this.value)" min=3 max=7 value=4></li>
+	<li><input type="number" id="numerki" onchange="changeSize(this.value)" min=3 max=7 value=4></li>
 	<li><span>Wybierz tryb</span></li>
-	<li><button class="tryb" onclick="changeNumber()"><img src="numerki.jpg" class="imgTrybu"></button></li>
-	<li><button class="tryb" onclick="changeImg('konik.jpg')"><img src="konik.jpg" class="imgTrybu"></button></li>
-	<li><button class="tryb" onclick="changeImg('tygrysek.jpg')" style="margin: 5px 5px 20px 5px"><img src="tygrysek.jpg" class="imgTrybu"></button></li>
+	<li><button class="tryb" onclick="changeNumber()"><img src="numerki.jpg" class="imgTrybu" alt="numerki"></button></li>
+	<li><button class="tryb" onclick="changeImg('konik.jpg')"><img src="konik.jpg" class="imgTrybu" alt="konik"></button></li>
+	<li><button class="tryb" onclick="changeImg('tygrysek.jpg')" style="margin: 5px 5px 20px 5px"><img src="tygrysek.jpg" class="imgTrybu" alt="tygrysek"></button></li>
 	<li><span>lub załaduj własny obrazek</span></li>
 	<li><input type="file" id="imageInput" accept="image/*" style="margin: 0px 0px 0px 5px; cursor: pointer"></li>
 	<li><button onclick="loadImage()" style="margin: 2px 0px 0px 5px">Załaduj obrazek</button></li>
 	<li><button id="mieszanie" onclick="shuffle()">Pomieszaj</button></li>
-	</div>
+	</ul>
 	<div id="winner">Gratulacje!!</div>
 	<div id="licznik">Liczba ruchów: <span id="licznikContent">0</span></div>
     <div id="tiles">
@@ -158,6 +157,7 @@ function loadImage() {
 function changeSize(x){
 	if(x>7 || x<3){
 		alert("Rozmiar musi znajdować się w przedziale od 3 do 7");
+		document.getElementById('numerki').value = size;
 		return
 	}
 	document.getElementById('licznikContent').innerHTML = 0;
