@@ -1,28 +1,319 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>Split Image using Canvas</title>
-	<style>
-	button{
-		overflow: hidden;
-		width: 100px;
-		height: 80px;
-		padding: 0px;
-		margin: -2px;
-		display: inline-block;
-	}
-	img{
-		object-fit: fill;
-		width: 100px;
-		height: 80px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equi Center</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body{
+		background-color: #E0CF99;
 		}
-	
-	</style>
+    .navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+	.jumbotron{
+	padding: 20px 40px 20px 40px;
+	margin: 25px;
+	}
+	.line{
+	margin: 10px 0px 10px 0px;
+	}
+	.description{
+	width: 70%;
+	}
+	.fleximg{
+	height: 50px;
+	width: 96%;
+	object-fit: cover;
+	margin: 10px;
+	}
+	.pagecontent{
+	width: 100%;
+	}
+	h2{
+	height: 45%;
+	width: 100%;
+	text-align: center;
+	}
+	.flexbox{
+	display: flex;
+	justify-content: center;
+	}
+	.flexbox-text{
+		position: absolute;
+		padding: 10px;
+		color: #E6E4E1;
+		text-shadow: -1px -1px 0 black,  
+                 2px -1px 0 black,
+                -1px  2px 0 black,
+                 2px  2px 0 black; 
+	}
+	.kontent{
+	display: none;
+	justify-content: center;
+	width: 96%;
+	margin: 0 2% 0 2%;
+	font-size: 1.5rem;
+	font-weight: bold;
+	background-color: #A09242;
+	color: #def;
+	text-align: left;
+	padding: 25px;
+	}
+	.dropdownbtn{
+	display: flex;
+	justify-content: center;
+	padding-top: .05rem;
+	padding-bottom: .05rem;
+	width: 96%;
+	margin: 0 2% 0 2%;
+	border: 1px solid #F09242;
+	font-size: 2rem;
+	font-weight: bold;
+	background-color: #E09242;
+	color: #def;
+	cursor: pointer;
+	}
+	.jumbotron{
+	margin-top: 5rem;
+	}
+	#about{
+	margin-top: 100px;
+	margin-left: 25px;
+	margin-right: 25px;
+	}
+	#kontakt{
+	margin-left: 25px;
+	margin-right: 25px;
+	}
+  </style>
+  <script>
+  let shown="0";
+  function toggleNavbar() {
+    let navbar = document.querySelector('.navbar-collapse');
+    if (navbar.classList.contains('show')) {
+        navbar.classList.remove('show');
+    }
+}
+
+  function Show(id){
+	if(shown=='kon'+id){
+		shownElement=document.getElementById(shown);
+		shownElement.style.display = "none";
+		shown="0";
+		return;
+	}
+	if(shown!="0"){
+		shownElement=document.getElementById(shown);
+		shownElement.style.display = "none";
+	}
+	shown = 'kon'+id;
+	newShown = document.getElementById(shown);
+	newShown.style.display = "flex";
+  }
+  </script>
 </head>
 <body>
-	<button><img src="dressage.jpg"></button>
-	<button><img src="dressage.jpg"></button>
+  <div class="container-fluid">
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand"><img src="equi center.jpg" alt="Logo" style="height: 2rem"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#Główna" onclick="toggleNavbar()">Strona główna <span class="sr-only">(current)</span></a>
+            </li>
+			<li class="nav-item active">
+              <a class="nav-link" href="#Ujeżdżenie" onclick="toggleNavbar()">Ujeżdżenie <span class="sr-only">(current)</span></a>
+            </li>
+			<li class="nav-item active">
+              <a class="nav-link" href="#Skoki" onclick="toggleNavbar()">Skoki przez przeszkody <span class="sr-only">(current)</span></a>
+            </li>
+			<li class="nav-item active">
+              <a class="nav-link" href="#Cross" onclick="toggleNavbar()">Cross <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about" onclick="toggleNavbar()">O nas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kontakt" onclick="toggleNavbar()">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
+    <div id="Główna" style="position: absolute; top: 0px;"></div>
+      <div class="jumbotron">
+        <h1 class="display-4">Witaj na stronie Equi Center!</h1>
+        <p class="lead">Zapraszamy do świata koni i jeździectwa.</p>
+        <hr class="line">
+        <p class="description">Tutaj znajdziesz wszelkie informacje o różnych dyscyplinach jeździeckich. Zaczynając na klasycznym ujeżdżeniu, kończąc na wyścigach. Dowiesz się jakie są rodzaje konkusów oraz jak są one oceniane</p>
+      </div>
 
+      <div class="pagecontent">
+		<div id="Ujeżdżenie" style="height: 60px;"></div>
+		<div class="flexbox" >
+			<img class="fleximg" src="dressage.jpg" alt="zdjecie 1">
+			<h2 class="flexbox-text">Ujeżdżenie</h2>
+		</div>
+		<div class="dropdown">
+			<div class="dropdownbtn" onclick="Show(this.id)" id="11">Zawody</div>
+			<div class="kontent" id="kon11">Zawody ujeżdżeniowe są dyscypliną jeździecką, która wymaga od zawodnika i konia wyjątkowej harmonii, precyzji oraz zrozumienia. Ujeżdżenie, nazywane również dressażem, jest podstawowym fundamentem dla wielu innych dyscyplin jeździeckich. Polega na wykonywaniu sekwencji z góry określonych ruchów i figur w różnych chodach, co wymaga zarówno fizycznej sprawności konia, jak i umiejętności precyzyjnego prowadzenia go przez jeźdźca.
+
+Podczas zawodów ujeżdżeniowych, zawodnicy wykonują zestawy figur i ruchów zgodnie z ustalonym wcześniej programem. Te programy mogą różnić się w zależności od poziomu trudności, w którym startuje dany zawodnik i jego koń. Ocena odbywa się na podstawie kilku kluczowych kryteriów, w tym:
+<br><br>
+1. Harmonia i równowaga:<br> Ocena obejmuje stopień harmonii i równowagi pomiędzy jeźdźcem a koniem. Ważne jest, aby jazda była płynna i zrównoważona, a koniu dano odpowiednie wskazówki, aby wykonywał ruchy z lekkością i elastycznością.
+<br><br>
+2. Precyzja i dokładność:<br> Zawodnicy są oceniani pod względem precyzji wykonania ruchów i figur. Każdy ruch musi być wykonywany zgodnie z wytycznymi, co wymaga doskonałego opanowania techniki przez zarówno jeźdźca, jak i konia.
+<br><br>
+3. Sprężystość i elastyczność:<br> Ocena obejmuje również zdolność konia do wykonywania ruchów z elastycznością i sprężystością. Im bardziej koniec wydaje się być zrelaksowany i elastyczny, tym lepsza jest ocena.
+<br><br>
+4. Równomierność i tempo<br>: Zawodnicy muszą utrzymać równe tempo podczas wykonywania różnych ruchów i figur. Zbyt szybka lub zbyt wolna prędkość może wpłynąć negatywnie na ocenę.
+<br><br>
+5. Zrozumienie i współpraca:<br> Istotne jest, aby pokazać, że jeździec i koń współpracują ze sobą i rozumieją nawzajem. Konie powinny reagować na subtelne sygnały jeźdźca, co wskazuje na głębokie zrozumienie i zaufanie między partnerami.
+
+Ocena podczas zawodów ujeżdżeniowych jest dokonywana przez sędziów, którzy obserwują występy zawodników i przyznają punkty za każde kryterium. W końcowej ocenie brane są pod uwagę wszystkie aspekty występu, a zwycięzca jest ten, który zaprezentuje najwyższą jakość jazdy, zgodną z wymaganiami programu oraz kryteriami oceny.</div>
+			<div class="dropdownbtn" onclick="Show(this.id)" id="12">Klasy</div>
+			<div class="kontent" id="kon12">Programy ujeżdżeniowe podzielone są ze względu na poziom trudności. Wyróżnia się 6 klas, które różnią się obowiązującymi w nich elementami:
+			<br><br>
+			Klasa L<br>
+			w której wykonywane są wolty o średnicy 20 m, przejścia stęp – kłus – stęp, kłus – galop – kłus, kłus – stój – kłus oraz żucie z ręki.. Dodatkowo koń porusza się w chodach roboczych oraz stępie pośrednim i stępie swobodnym. Przejazd może być wykonywany w kłusie anglezowanym. Zawody klasy L odbywają się na imprezach rangi towarzyskiej, ich celem jest pokazanie rozluźnienie, giętkość i swobodę w ruchach konia. Akceptację kiełzna jak i równość rytmu i dążność do ruchu naprzód
+			<br><br>
+			Klasa P<br>
+			wolty wykonywane są o średnicy 15 m. Dodatkowo dochodzą elementy takie jak serpentyny, ustępowanie od łydki, kontrgalop, wydłużenie wykroku w kłusie, stępie, galopie oraz stęp i galop pośredni. Od klasy P włącznie zawody rozgrywane są na poziomie regionalnym, do której wymagane jest posiadanie licencji. Programy klasy P sprawdzają oprócz elementów klasy L pewien stopień przepuszczalności i równowagi. Zapoczątkowują siłę pchającą jak i prawidłowe ustawienie podczas wykonywanych figur
+			<br><br>
+			Klasa N<br>
+			klasa, w której uzupełnieniem chodów są stęp, kłus, galop zebrany. Natomiast wśród nowych elementów wyróżniamy: wolty o średnicy 10 m, półpiruet roboczy w stępie, zwrot na zadzie, cofanie, zwykłą zmianę nogi, łopatkę do wewnątrz oraz trawers i ciąg w kłusie. Programy klasy N sprawdzają umiejętności na poziomie klas L i P oraz potwierdzają zdobycie nowych umiejętności jakimi są przyjęcie większego obciążenia przez tylne kończyny, większe zaangażowanie zadu, giętkość, przepuszczalność oraz równowaga			<br><br>
+			<br><br>
+			Klasa C<br>
+			w tej klasie nowymi elementami są pojedyncze zmiany nogi oraz chody boczne w galopie. Program ten prezentuje giętkość, wyprostowanie, zebranie w każdym chodzie oraz wyraźne rozluźnienie pomiędzy chodami zebranymi a wyciągniętymi			<br><br>
+			<br><br>
+			Klasa CC<br>
+			wyróżniamy tu ćwierć piruety, pół piruet oraz piruet w galopie, lotne zmiany nogi co 2,3, 4 tempa			<br><br>
+			<br><br>
+			Klasa CS<br>
+			nowe elementy w tej klasie to lotne zmiany nogi co tempo, piaff oraz pasaż			
+			</div>
+			<div class="dropdownbtn" onclick="Show(this.id)" id="13">Znani zawodnicy</div>
+			<div class="kontent" id="kon13">W Polsce istnieje wiele utalentowanych zawodników ujeżdżeniowych, którzy osiągają sukcesy zarówno na arenie krajowej, jak i międzynarodowej. Oto kilku znanych polskich jeźdźców ujeżdżeniowych:
+			<br><br><br>
+			Michał Rapcewicz<br>
+			Jest to jeden z najbardziej znanych polskich jeźdźców ujeżdżeniowych. Zdobył wiele tytułów mistrzowskich na arenie krajowej i międzynarodowej. Był wielokrotnym mistrzem Polski i reprezentował Polskę na wielu międzynarodowych imprezach
+			<br><br>
+			Beata Stremler<br>
+			Jej nazwisko jest dobrze znane w środowisku ujeżdżeniowym. Stremler jest cenioną trenerką i zawodniczką. Zdobyła wiele nagród na krajowych i międzynarodowych zawodach ujeżdżeniowych
+			<br><br>
+			Katarzyna Milczarek<br>
+			To również wybitna polska jeźdźczyni ujeżdżeniowa, która wielokrotnie reprezentowała Polskę na zawodach międzynarodowych. Zdobyła liczne medale na arenie krajowej i była wielokrotnie mistrzynią Polski
+			<br><br>
+			Marcin Stachurski<br>
+			Marcin Stachurski to kolejny znany polski jeździec ujeżdżeniowy. Współpracuje z wieloma konnymi ośrodkami treningowymi i odnosi sukcesy na różnych zawodach ujeżdżeniowych
+			<br><br>
+			Aleksandra Szulc<br>
+			Jest jedną z wiodących polskich zawodniczek ujeżdżeniowych. Regularnie startuje w zawodach krajowych i międzynarodowych, zdobywając liczne wyróżnienia i nagrody
+			
+			</div>
+		</div>
+		<div id="Skoki" style="height: 60px;"></div>
+		<div class="flexbox">
+			<img class="fleximg" src="skoki.jpg" alt="zdjecie 1">
+			<h2 class="flexbox-text">Skoki przez przeszkody</h2>
+		</div>
+		<div class="dropdown">
+			<div class="dropdownbtn" onclick="Show(this.id)" id="21">Zawody</div>
+			<div class="kontent" id="kon21">Skoki przez przeszkody to jedna z konkurencji jeździectwa, gdzie jeździec wraz z koniem pokonuje kolejne przeszkody składające się na tor zwany parkurem. Przeszkody mogą się różnić między sobą stopniem trudności i rodzajem konstrukcji, wyróżniamy m. in. stacjonaty, oksery, mury czy rowy z wodą. W zależności od rodzaju konkursu, o zwycięstwie decydują różne czynniki. W zawodach liczy się przede wszystkim prawidłowe pokonanie toru z jak najmniejszą ilością punktów karnych, które przyznawane są za błędy, takie jak strącenie przeszkody, zrzucenie jeźdźca czy odmowa skoku. W tej dyscyplinie istotne znaczenie ma również czas przejazdu.
+			<br><br>
+			Spośród najpopularniejszych, tradycyjnych odmian konkursów w skokach przez przeszkody wyróżniamy w szczególności:
+			<br><br>
+			Konkursy zwykłe<br>
+			gdzie o zwycięstwie decydują punkty karne, a w przypadku remisu – czas przejazdu<br><br>
+			Konkurs szybkości<br>
+			zawody na jak najszybsze pokonanie trasy. W tym przypadku błędy oznaczają doliczenie dodatkowego czasu<br><br>
+			Konkursy dwunawrotowe i dwufazowe<br>
+			gdzie zawodnik z koniem muszą pokonać kilka etapów na podobnych lub różniących się od siebie torach<br>
+			</div>
+			<div class="dropdownbtn" onclick="Show(this.id)" id="22">Klasy</div>
+			<div class="kontent" id="kon22">Klasy w skokach przez przeszkody zależą od wysokości przeszkód oraz stopnia trudności parkuru. Wyróżniamy:
+			<br>Klasa LL:	do 90cm
+			<br>Klasa L:	100-105cm
+			<br>Klasa P:	110-115cm
+			<br>Klasa N:	120-125cm
+			<br>Klasa C:	130-135cm
+			<br>Klasa CC:	140-145cm
+			<br>Klasa CS:	150-155cm
+			</div>
+			<div class="dropdownbtn" onclick="Show(this.id)" id="23">Znani zawodnicy</div>
+			<div class="kontent" id="kon23">
+			Michał Kaźmierczak<br>
+			Jest jednym z czołowych polskich jeźdźców w skokach przez przeszkody. Ma na swoim koncie wiele sukcesów na arenie krajowej i międzynarodowej.			<br><br>
+			Jarosław Skrzyczyński<br>
+			To doświadczony polski jeździec, który regularnie reprezentuje Polskę na zawodach skoków przez przeszkody. Osiągnął wiele znaczących wyników w swojej karierze			<br><br>
+			Bartłomiej Kwiatek<br>
+			To kolejny znany polski zawodnik w skokach przez przeszkody, który regularnie startuje w zawodach krajowych i międzynarodowych, odnosząc liczne sukcesy			<br><br>
+			Marek Lewicki<br>
+			Jest jednym z doświadczonych polskich jeźdźców w skokach przez przeszkody, który od lat rywalizuje na różnych arenach jeździeckich, reprezentując Polskę i osiągając znaczące wyniki			<br><br>
+			
+			</div>
+		</div>
+		<div id="Cross" style="height: 60px;"></div>
+		<div class="flexbox">
+			<img class="fleximg" src="wyscigi.jpg" alt="zdjecie 1">
+			<h2 class="flexbox-text">Cross</h2>
+		</div>
+		<div class="dropdown">
+			<div class="dropdownbtn" onclick="Show(this.id)" id="31">Zawody</div>
+			<div class="kontent" id="kon31">Cross, zwany także jako cross-country, to jedna z dyscyplin jeździeckich, która polega na pokonywaniu terenowych tras z przeszkodami. Jest to często widoczna dyscyplina w sportach jeździeckich, szczególnie w sporcie WKKW (Wyszkolenie, Wierzchowanie, Konkursy Wszechstronne), która jest połączeniem ujeżdżenia, skoków przez przeszkody i crossu. Trasa crossowa prowadzi przez zróżnicowane tereny, w tym przez lasy, pola, stawy, strumienie itp. Na trasie ustawiane są różnego rodzaju naturalne przeszkody, takie jak ściany, palisady, ziemne nasypy, stawy, a także sztucznie wykonane, np. wodne groble, skocznie, itp. Trasy crossowe są projektowane tak, aby zawodnicy musieli zmagać się z różnorodnymi warunkami terenowymi, takimi jak strome wzniesienia, błotniste odcinki, trudne do przejścia lasy, a także szerokie otwarte przestrzenie. Podczas jazdy w crossie ważne jest utrzymanie odpowiedniej prędkości, aby pokonać trasę w wyznaczonym czasie, jednocześnie zachowując kontrolę nad koniem i pokonując przeszkody z precyzją i bezpieczeństwem. Cross to nie tylko sprawdzian umiejętności jeździeckich, ale również wytrzymałości i kondycji konia. Konie muszą być przygotowane do pokonywania długich tras z przeszkodami, utrzymując równowagę i energię przez cały wyścig.</div>
+			<div class="dropdownbtn" onclick="Show(this.id)" id="32">Klasy</div>
+			<div class="kontent" id="kon32">W Polsce zawody w konkurencji WKKW rozgrywane są w następujących klasach:<br><br>
+			– CNC 80, czyli pierwszy stopień wprowadzający konia i jeźdźca w tajniki pokonywania przeszkód terenowych, przeznaczona dla młodych koni i kucy<br>
+			– CNC 90<br>
+			– CNC 100 – inaczej lekka<br>
+			– CNC 1*, pośrednia pomiędzy początkiem kariery WKKW, a pierwszym etapem międzynarodowego poziomu<br>
+			– CNC 2*<br>
+			– CCI 2*, czyli wprowadzenie koni i zawodników w szeroki zakres przeszkód na poziomie międzynarodowym, kierowana przede wszystkim dla juniorów<br>
+			– CCI 3*, zawierają bardziej skomplikowane wymagania, rywalizują w niej Młodzi Jeźdźcy<br>
+			– CCI 4* poziom kwalifikujący zawodnika i konia do zawodów rangi Mistrzostw Europy, Świata oraz Igrzysk Olimpijskich<br>
+			– CCI 5* to najwyższy poziom zawodów WKKW. Na tym poziomie rozgrywanych jest jedynie kilka konkursów na całym świecie w ciągu roku<br>
+			Konkursy Międzynarodowe rozgrywane są w seriach krótkich z oznaczeniem „S” oraz w formacie długim „L”. Serie te różnią się między sobą długością dystansu i ilością przeszkód.
+			</div>
+			<div class="dropdownbtn" onclick="Show(this.id)" id="33">Znani zawodnicy</div>
+			<div class="kontent" id="kon33">
+			Paweł Warszawski<br>
+			Reprezentant Polski w WKKW, współpracujący z trenerem Andreasem Dibowskim i Bogusławem Jareckim. Swoją przygodę z jeździectwem rozpoczął w wieku 12 lat w Stadninie Koni Walewice. Dwukrotny srebrny medalista drużynowo w Mistrzostwach Europy Juniorów (rok 1998 i 1999). Paweł jest wielokrotnym zdobywcą medali Mistrzostw Polski, sześciokrotnym reprezentantem kraju na Mistrzostwach Europy i czterokrotnym zdobywcą Pucharu Polski.
+			<br><br>
+			Jan Kamiński<br>
+			Reprezentant Mazowsza, założyciel klubu Equikam. Jako zawodnik odnosił wiele sukcesów na arenie ogólnopolskiej (3 medale z Mistrzostw Polski Seniorów, Tytuł Mistrza Polski 2018, zwycięzca Pucharu Polski 2019, 2023) oraz międzynarodowej. Trzykrotny uczestnik Mistrzostw Europy. Poza startami zajmuje się również trenowaniem zawodników, trzykrotnie uczestniczył w młodzieżowych Mistrzostwach Europy jako trener. Jego podopieczni zdobywali liczne medale Mistrzostw Polski.
+			<br><br>
+			Julia Gillmaier<br>
+			Reprezentantka klubu Konie Sportowe Gillmaier, studentka startująca również w skokach. Dwukrotna Mistrzyni Polski Młodych Jeźdźców WKKW, dwukrotna srebrna medalistka Mistrzostw Polski Juniorów WKKW, Zwycięzca Pucharu Polski WKKW Juniorów, uczestniczka Mistrzostw Europy w Millstreet w 2017, Fontainebleau w 2018 oraz Maarsbergen w 2019. Mistrzyni Polski Seniorów 2023
+			<br>
+			</div>
+		</div>
+		</div>
+
+      <div id="about">
+        <h5>O nas</h5>
+        <p>Strona wykonana w pramach zadania z przedmiotu Programowanie w Internecie. Nie gwarantuje poprawności informacji</p>
+      </div>
+	  <div id="kontakt">
+        <h5>Kontakt</h5>
+        <p>Aleksandra Oknińska, nr indeksu 210907<br>E-mail: s210907@sggw.edu.pl</p>
+      </div>
+
+    
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
