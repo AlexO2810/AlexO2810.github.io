@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function changeLanguage() {
         const selectedLanguage = languageSelector.value || 'en'; // Default to 'en'
-        fetch(`SPA/public/resx/${selectedLanguage}.json`)
+        fetch(`/resx/${selectedLanguage}.json`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
