@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #555;
+    overflow-x: hidden;
+        }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.logo {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+nav {
+    position: relative;
+    margin-right: auto;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu > li {
+    position: relative;
+}
+.menu > li > a:hover{
+    background-color: #222;
+}
+.menu > li > a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #eee;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #222;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background-color: #555;
+}
+
+.menu > li:hover .submenu {
+    display: block;
+}
+
+.toggle-menu {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+    }
+    
+    .menu > li {
+        width: 100%;
+    }
+    
+    .menu > li > a {
+        padding: 10px;
+        border-bottom: 1px solid #444;
+        width: 100%;
+    }
+    
+    .submenu {
+        position: static;
+        width: 100%;
+    }
+    .submenu li a {
+        padding: 10px;
+        border-bottom: 1px solid #555; /* Add border to submenu items */
+        width: 100%; /* Ensure full width */
+    }
+    
+    .toggle-menu {
+        display: block;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    .logo.hidden {
+        display: none;
+    }
+    nav{
+        width: 100%;
+    }
+   
+
+    .main-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+    }
+
+}
+.main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.main-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.kontent-box .main-content p{
+    width: 66vw;
+    max-width: 66vw;
+}
+@media (min-width: 564px) {
+    .kontent-image{
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.image-container{
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+.image-container img {
+    height: 100%;
+    display: block;
+    position: absolute; /* Ustawiamy pozycję na absolute, aby można było precyzyjnie go wyśrodkować */
+    left: 50%; /* Przesuwamy obrazek w poziomie o 50% */
+    top: 50%; /* Przesuwamy obrazek w pionie o 50% */
+    transform: translate(-50%, -50%);
+    width: 100%;
+    object-fit: cover;
+}
+
+        #shinto{
+            height: 50vh;
+        }
+.title{
+    color: #fff;
+}
+.kontent-container{
+    width: 90vw;
+    background-color: rgb(240, 225, 176);
+    margin: 5vw;
+    border-radius: 25px;
+    display: flex;
+    position: relative;
+}
+.side-image img{
+    object-fit: cover;
+    min-height: 88vh;
+    height: 100%;
+    width: 20vw;
+    opacity: 0.7;
+    border-radius: 25px;
+    display: flex;
+    
+}
+.culture-header{
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 100px;
+    text-shadow: 2px 2px 5px black;
+}
+@media (max-width: 625px){
+    .culture-header{
+        font-size: 50px;
+        letter-spacing: 10px;
+    }
+}
+.culture-header div{
+    transform: rotate(-90deg);
+    max-width: 88vh;
+    white-space: nowrap;
+}
+.side-image{
+    position: relative;
+    min-height: 88vh;
+    height: 100%;
+    width: 20vw;
+    margin: 1vh;
+    text-align: center;
+    float: left;
+    flex: 0.25;
+}
+.kontent-box{
+    width: 75%;
+    min-height: 88vh;
+    height: 100%;
+    margin: 1vh;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 25px;
+    margin-left: auto;
+    text-align: center;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    flex: 0.75;
+}
+@media (max-width: 325px){
+    .kolumna{
+        white-space: pre-wrap;
+        min-width: 0px;
+    }
+}
+.kontent-box h1{
+    margin-top: 0;
+    padding-top: 40px;
+    
+}
+.kolumny{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.kolumna{
+    flex: 1 1 50%;
+    min-width: 180px;
+    white-space: nowrap;
+}
+.lewy{
+    float: left;
+}
+.prawy{
+    float: right;
+}
+    </style>
+    <script>
+
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        const logo = document.querySelector('.logo');
+        menu.classList.toggle('active');
+        logo.classList.toggle('hidden');
+    }
+    function adjustSideImageHeight() {
+        const kontentContainers = document.querySelectorAll('.kontent-container');
+        kontentContainers.forEach(container => {
+            const kontentBox = container.querySelector('.kontent-box');
+            const sideImage = container.querySelector('.side-image');
+            if (kontentBox && sideImage) {
+                sideImage.style.height = `${kontentBox.clientHeight}px`;
+            }
+        });
+    }
+
+        window.addEventListener('load', adjustSideImageHeight);
+        window.addEventListener('resize', adjustSideImageHeight);
+    
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">JAPONIA</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Kultura</a>
+                    <ul class="submenu">
+                        <li><a href="#">Religia</a></li>
+                        <li><a href="#">Sztuki Walki</a></li>
+                        <li><a href="#">Haiku</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ciekawe Miejsca</a>
+                    <ul class="submenu">
+                        <li><a href="#">Site 1</a></li>
+                        <li><a href="#">Site 2</a></li>
+                        <li><a href="#">Site 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Język</a>
+                    <ul class="submenu">
+                        <li><a href="#">Site 1</a></li>
+                        <li><a href="#">Site 2</a></li>
+                        <li><a href="#">Site 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="toggle-menu" onclick="toggleMenu()">&#9776;</div>
+        </nav>
+    </header>
+    <main>
+        <div class="image-container">
+            <img src="tło.jpg" alt="Japonia">
+            <div class="main-content">
+                <h1>Japonia</h1>
+                <p>Japonia, kraj wschodzącego słońca, to fascynujące miejsce, które łączy w sobie starożytną tradycję i nowoczesność. Znana z pięknych krajobrazów, kultury, sztuki, oraz wyjątkowej kuchni, Japonia przyciąga podróżników z całego świata.</p>
+            </div>
+
+        </div>
+        <div class="kontent-container">
+            <div class="side-image">
+                <img src="shinto.jpg" alt="Shinto">
+                <div class="culture-header"><div>Religia</div></div>
+            </div>
+            <div class="kontent-box">
+                <div>
+                    <h1>Shinto</h1>
+                    <p>Shintō to pierwotna religia Japonii, która koncentruje się na czczeniu kami, czyli duchów zamieszkujących naturę, przedmioty i przodków. Shintō nie ma założyciela, świętej księgi ani ściśle określonej doktryny, a jego praktyki obejmują rytuały i ceremonie mające na celu utrzymanie harmonii między ludźmi a kami. W Japonii istnieje wiele świątyń shintoistycznych, gdzie ludzie składają ofiary, modlą się i uczestniczą w festiwalach.</p>
+                    <h1>Buddyzm</h1>
+                    <p>Buddyzm został wprowadzony do Japonii w VI wieku n.e. z Korei i Chin. Wpłynął znacząco na japońską kulturę, sztukę i filozofię. Istnieje wiele szkół buddyzmu w Japonii, w tym Zen, Nichiren, Tendai i Shingon. Buddyzm w Japonii często współistnieje z Shintō, a wiele osób praktykuje rytuały obu religii.</p>
+                </div>
+            </div>
+        </div>
+        <div class="kontent-container">
+            <div class="side-image">
+                <img src="sztukiWalki.jpg" alt="Sztuki Walki">
+                <div class="culture-header"><div>Sztuki Walki</div></div>
+            </div>
+            <div class="kontent-box">
+                <div>
+                    <h1>Karate</h1>
+                    <p>Karate to japońska sztuka walki, która koncentruje się na uderzeniach, kopnięciach, blokach i technikach unikania. Powstała na Okinawie, a jej nazwa oznacza "pustą rękę", co odzwierciedla walkę bez użycia broni. Karate rozwija siłę, szybkość, precyzję oraz dyscyplinę mentalną.</p>
+                    <h1>Judo</h1>
+                    <p>Judo, co tłumaczy się jako "łagodna droga", jest nowoczesną japońską sztuką walki i sportem olimpijskim. Skupia się na rzutach, trzymaniach, duszeniach oraz dźwigniach. Założone przez Jigoro Kano, judo uczy efektywnego wykorzystania energii przeciwnika i rozwija sprawność fizyczną oraz ducha walki.</p>
+                    <h1>Aikido</h1>
+                    <p>Aikido to sztuka walki stworzona przez Morihei Ueshibę, której nazwa oznacza "drogę harmonii z energią". Aikido kładzie nacisk na obronę bez zadawania obrażeń przeciwnikowi poprzez techniki okrężne, dźwignie i rzuty. Uczy harmonii, równowagi i kontrolowania własnej energii.</p>
+                    <h1>Kendo</h1>
+                    <p>Kendo, "droga miecza", to współczesna japońska sztuka walki z mieczem. Uczestnicy używają bambusowych mieczy (shinai) oraz noszą ochronne zbroje (bogu). Kendo promuje dyscyplinę, szacunek, koncentrację i ducha walki. Jest to także popularny sport, który kultywuje tradycje samurajskie.</p>
+                </div>
+            </div>
+        </div>
+        <div class="kontent-container">
+            <div class="side-image">
+                <img src="haiku.jpg" alt="Haiku">
+                <div class="culture-header"><div>Haiku</div></div>
+            </div>
+            <div class="kontent-box">
+                <div>
+                    <h1>Definicja</h1>
+                    <p>Haiku to tradycyjna japońska forma poetycka, charakteryzująca się prostotą i głębią. Składa się z trzech wersów, liczących odpowiednio 5, 7 i 5 sylab. Haiku zazwyczaj nawiązuje do natury i zmieniających się pór roku, starając się uchwycić ulotne chwile i emocje.</p>
+                    <h1>Przykłady</h1>
+                    <p style="font-weight: bold;">Matsuo Basho</p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>furuikeya</br>kawazu tobikomu</br>mizuno oto</p></div>
+                    <div class="kolumna"><p>Stara sadzawka,</br>Żaba wskakuje –</br>Plusk wody</p></div>
+                    </div>
+                    <p style="font-weight: bold;">Yosa Buson</p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>hatsushigure</br>sarumo kominowo</br>hoshigenari</p></div>
+                    <div class="kolumna"><p>Pierwszy deszcz zimowy,</br>Nawet mała małpa</br>Pragnie płaszcza</p></div>
+                    </div>
+                    <p style="font-weight: bold;">Kobayashi Issa </p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>hatsuyukiya</br>itsumono michiwo</br>kodomorato</p></div>
+                    <div class="kolumna"><p>Pierwszy śnieg,</br>Zawsze tą samą drogą</br>Z dziećmi</p></div>
+                    </div>
+                    <p style="font-weight: bold;">Shiki Masaoka</p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>kaki kueru</br>kanega nakunari</br>houryuuji</p></div>
+                    <div class="kolumna"><p>Jem persymony,</br>Dzwon rozbrzmiewa –</br>Świątynia Horyu</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
