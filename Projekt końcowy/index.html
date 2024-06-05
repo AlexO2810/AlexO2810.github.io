@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanda</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="#">JAPANDA</a></div>
+        <nav>
+            <ul class="menu">
+                <li><a id="menu-culture">Kultura</a>
+                    <ul class="submenu">
+                        <li><a id="menu-religon" href="#Religion" class="scroll-to" onclick="hideMenu()">Religia</a></li>
+                        <li><a id="menu-ma" href="#MartialArts" class="scroll-to" onclick="hideMenu()">Sztuki Walki</a></li>
+                        <li><a id="menu-haiku" href="#Haiku" class="scroll-to" onclick="hideMenu()">Haiku</a></li>
+                    </ul>
+                </li>
+                <li><a id="menu-places">Ciekawe Miejsca</a>
+                    <ul class="submenu">
+                        <li><a id="menu-tokio" href="#Tokio" class="scroll-to" onclick="hideMenu()">Tokio</a></li>
+                        <li><a id="menu-kioto" href="#Kioto" class="scroll-to" onclick="hideMenu()">Kioto</a></li>
+                        <li><a id="menu-nara" href="#Nara" class="scroll-to" onclick="hideMenu()">Nara</a></li>
+                    </ul>
+                </li>
+                <li id="menu-lang" class="jezyki"><a>Language</a>
+                    <ul class="submenu">
+                        <li onclick="hideMenu()"><a onclick="changeLanguage('pl')">Polski</a></li>
+                        <li onclick="hideMenu()"><a onclick="changeLanguage('en')">English</a></li>
+                        <li onclick="hideMenu()"><a onclick="changeLanguage('jp')">日本語</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="toggle-menu" onclick="toggleMenu()">&#9776;</div>
+        </nav>
+    </header>
+    <main>
+        <div id="cookie-bg"></div>
+        <div id="cookie">
+            <h1 id="cookie-title">Ciasteczka</h1>
+            <p id="cookie-content">Nasza strona internetowa używa plików cookies, aby poprawić Twoje doświadczenie i dostosować treści do Twoich potrzeb. Kontynuując korzystanie z naszej strony, zgadzasz się na używanie plików cookies. Więcej informacji znajdziesz w naszej polityce prywatności.</p>
+            <div id="cookie-button" onclick="cookiesAccepted()">OK</div>
+        </div>
+        <div class="image-container">
+            <img src="pictures/tło.jpg" alt="Japonia">
+            <div class="main-content">
+                <h1 id="title">Japonia</h1>
+                <p id="description">Japonia, kraj wschodzącego słońca, to fascynujące miejsce, które łączy w sobie starożytną tradycję i nowoczesność. Znana z pięknych krajobrazów, kultury, sztuki, oraz wyjątkowej kuchni, Japonia przyciąga podróżników z całego świata.</p>
+            </div>
+
+        </div>
+        <div id="Religion" class="kontent-container">
+            <div class="side-image">
+                <img src="pictures/shinto.jpg" alt="Shinto">
+                <div class="culture-header"><div id="religion-header">Religia</div></div>
+            </div>
+            <div class="kontent-box">
+                <div>
+                    <h1 id="religion-title1">Shinto</h1>
+                    <p id="religion-content1">Shintō to pierwotna religia Japonii, która koncentruje się na czczeniu kami, czyli duchów zamieszkujących naturę, przedmioty i przodków. Shintō nie ma założyciela, świętej księgi ani ściśle określonej doktryny, a jego praktyki obejmują rytuały i ceremonie mające na celu utrzymanie harmonii między ludźmi a kami. W Japonii istnieje wiele świątyń shintoistycznych, gdzie ludzie składają ofiary, modlą się i uczestniczą w festiwalach.</p>
+                    <h1 id="religion-title2">Buddyzm</h1>
+                    <p id="religion-content2">Buddyzm został wprowadzony do Japonii w VI wieku n.e. z Korei i Chin. Wpłynął znacząco na japońską kulturę, sztukę i filozofię. Istnieje wiele szkół buddyzmu w Japonii, w tym Zen, Nichiren, Tendai i Shingon. Buddyzm w Japonii często współistnieje z Shintō, a wiele osób praktykuje rytuały obu religii.</p>
+                </div>
+            </div>
+        </div>
+        <div id="MartialArts" class="kontent-container">
+            <div class="side-image">
+                <img src="pictures/sztukiWalki.jpg" alt="Sztuki Walki">
+                <div class="culture-header"><div id="MartialArts-header">Sztuki Walki</div></div>
+            </div>
+            <div class="kontent-box">
+                <div>
+                    <h1 id="MartialArts-title1">Karate</h1>
+                    <p id="MartialArts-content1">Karate to japońska sztuka walki, która koncentruje się na uderzeniach, kopnięciach, blokach i technikach unikania. Powstała na Okinawie, a jej nazwa oznacza "pustą rękę", co odzwierciedla walkę bez użycia broni. Karate rozwija siłę, szybkość, precyzję oraz dyscyplinę mentalną.</p>
+                    <h1 id="MartialArts-title2">Judo</h1>
+                    <p id="MartialArts-content2">Judo, co tłumaczy się jako "łagodna droga", jest nowoczesną japońską sztuką walki i sportem olimpijskim. Skupia się na rzutach, trzymaniach, duszeniach oraz dźwigniach. Założone przez Jigoro Kano, judo uczy efektywnego wykorzystania energii przeciwnika i rozwija sprawność fizyczną oraz ducha walki.</p>
+                    <h1 id="MartialArts-title3">Aikido</h1>
+                    <p id="MartialArts-content3">Aikido to sztuka walki stworzona przez Morihei Ueshibę, której nazwa oznacza "drogę harmonii z energią". Aikido kładzie nacisk na obronę bez zadawania obrażeń przeciwnikowi poprzez techniki okrężne, dźwignie i rzuty. Uczy harmonii, równowagi i kontrolowania własnej energii.</p>
+                    <h1 id="MartialArts-title4">Kendo</h1>
+                    <p id="MartialArts-content4">Kendo, "droga miecza", to współczesna japońska sztuka walki z mieczem. Uczestnicy używają bambusowych mieczy (shinai) oraz noszą ochronne zbroje (bogu). Kendo promuje dyscyplinę, szacunek, koncentrację i ducha walki. Jest to także popularny sport, który kultywuje tradycje samurajskie.</p>
+                </div>
+            </div>
+        </div>
+        <div id="Haiku" class="kontent-container">
+            <div class="side-image">
+                <img src="pictures/haiku.jpg" alt="Haiku">
+                <div class="culture-header"><div id="haiku-header">Haiku</div></div>
+            </div>
+            <div class="kontent-box">
+                <div>
+                    <h1 id="haiku-title1">Definicja</h1>
+                    <p id="haiku-content1">Haiku to tradycyjna japońska forma poetycka, charakteryzująca się prostotą i głębią. Składa się z trzech wersów, liczących odpowiednio 5, 7 i 5 sylab. Haiku zazwyczaj nawiązuje do natury i zmieniających się pór roku, starając się uchwycić ulotne chwile i emocje.</p>
+                    <h1 id="haiku-title2">Przykłady</h1>
+                    <p id="haiku-author1" style="font-weight: bold;">Matsuo Basho</p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>furuikeya</p><p>kawazu tobikomu</p><p>mizuno oto</p></div>
+                    <div class="kolumna"><p id="haiku11">Stara sadzawka,</p><p id="haiku12">Żaba wskakuje –</p><p id="haiku13">Plusk wody</p></div>
+                    </div>
+                    <p id="haiku-author2" style="font-weight: bold;">Yosa Buson</p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>hatsushigure</p><p>sarumo kominowo</p><p>hoshigenari</p></div>
+                    <div class="kolumna"><p id="haiku2">Pierwszy deszcz zimowy,</p><p id="haiku22">Nawet mała małpa</p><p id="haiku23">Pragnie płaszcza</p></div>
+                    </div>
+                    <p id="haiku-author3" style="font-weight: bold;">Kobayashi Issa </p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>hatsuyukiya</p><p>itsumono michiwo</p><p>kodomorato</p></div>
+                    <div class="kolumna"><p id="haiku3">Pierwszy śnieg,</p><p id="haiku32">Zawsze tą samą drogą</p><p id="haiku33">Z dziećmi</p></div>
+                    </div>
+                    <p id="haiku-author4" style="font-weight: bold;">Shiki Masaoka</p>
+                    <div class="kolumny">
+                    <div class="kolumna"><p>kaki kueru</p><p>kanega nakunari</p><p>houryuuji</p></div>
+                    <div class="kolumna"><p id="haiku4">Jem persymony,</p><p id="haiku42">Dzwon rozbrzmiewa –</p><p id="haiku43">Świątynia Horyu</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Tokio" class="kontent-container2">
+            <div class="kontent-box2" >
+                <div>
+                    <h1 id="tokio-title">Tokio</h1>
+                    <p id="tokio-content">Tokio, stolica Japonii, to tętniąca życiem metropolia, gdzie tradycja spotyka się z nowoczesnością. Jest to jedno z najważniejszych centrów finansowych i kulturalnych na świecie, oferujące niezliczone atrakcje dla każdego odwiedzającego. Tokio to miasto, które nigdy nie zasypia, oferując niekończące się możliwości eksploracji, niezapomniane doznania kulinarne i niesamowite kontrasty między przeszłością a przyszłością. Każda wizyta odkrywa nowe oblicze tego fascynującego miasta.</p>
+                    
+                </div>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery">
+                    <img src="pictures/tokio1.jpg" alt="Zdjęcie 1" class="gallery-item">
+                    <img src="pictures/tokio2.jpg" alt="Zdjęcie 2" class="gallery-item">
+                    <img src="pictures/tokio3.jpg" alt="Zdjęcie 3" class="gallery-item">
+                </div>
+                <button class="gallery-prev">&#10094;</button>
+                <button class="gallery-next">&#10095;</button>
+            </div>
+        </div>
+        <div id="Kioto" class="kontent-container2">
+            <div class="kontent-box2" >
+                <div>
+                    <h1 id="kioto-title">Kioto</h1>
+                    <p id="kioto-content">Kioto, dawna stolica Japonii, jest znane ze swoich przepięknych świątyń, ogrodów i tradycyjnych drewnianych domów. Warto odwiedzić świątynię Kinkaku-ji (Złoty Pawilon), świątynię Fushimi Inari Taisha z tysiącami bram torii oraz dzielnicę gejsz Gion. Wiosną miasto jest magiczne dzięki kwitnącym wiśniom.
+                    </p>
+                    
+                </div>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery">
+                    <img src="pictures/kioto1.jpg" alt="Zdjęcie 1" class="gallery-item">
+                    <img src="pictures/kioto2.jpg" alt="Zdjęcie 2" class="gallery-item">
+                    <img src="pictures/kioto3.jpg" alt="Zdjęcie 3" class="gallery-item">
+                </div>
+                <button class="gallery-prev">&#10094;</button>
+                <button class="gallery-next">&#10095;</button>
+            </div>
+        </div>
+        <div id="Nara" class="kontent-container2">
+            <div class="kontent-box2" >
+                <div>
+                    <h1 id="nara-title">Nara</h1>
+                    <p id="nara-content">Nara, pierwsza stała stolica Japonii, jest domem dla wielu historycznych skarbów, w tym gigantycznego posągu Buddy w świątyni Tōdai-ji oraz licznych wolno chodzących jeleni w parku Nara. Świątynia Kasuga Taisha z setkami kamiennych i brązowych lampionów to kolejny punkt obowiązkowy.</p>
+                    
+                </div>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery">
+                    <img src="pictures/nara1.jpg" alt="Zdjęcie 1" class="gallery-item">
+                    <img src="pictures/nara2.jpg" alt="Zdjęcie 2" class="gallery-item">
+                    <img src="pictures/nara3.jpg" alt="Zdjęcie 3" class="gallery-item">
+                </div>
+                <button class="gallery-prev">&#10094;</button>
+                <button class="gallery-next">&#10095;</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
