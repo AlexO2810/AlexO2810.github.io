@@ -313,16 +313,19 @@ nav {
     overflow: hidden;
     border-radius: 25px;
     margin-top: 1vh;
-    max-height: 500px;
+    height: 300px;
 }
 
 .gallery {
     display: flex;
     transition: transform 0.5s ease;
+    height: 300px;
 }
 
 .gallery-item {
-    min-width: 100%;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
